@@ -30,6 +30,8 @@ public class LinearRegression {
         objLinearRegression.calculateHypothesis();
 
         objLinearRegression.gradientDescent();
+
+        objLinearRegression.computeSalesBasedOnPopulation();
     }
 
     void calculateHypothesis(){
@@ -120,6 +122,21 @@ public class LinearRegression {
         }
 
         return dTransposedMatrix;
+
+    }
+
+    void computeSalesBasedOnPopulation(){
+        double[][] dPopulationInputData = {{1.0, 7.0}};
+        double dPredictedProfit = 0.0;
+
+        for(int index1=0; index1<dPopulationInputData.length; index1++){
+            for(int index2=0; index2<dPopulationInputData[0].length; index2++){
+                dPredictedProfit = dPredictedProfit + (dPopulationInputData[index1][index2] * dTheta[index2]);
+            }
+        }
+
+        System.out.println("For population of 70000, profit predicted is :" + dPredictedProfit * 10000);
+
 
     }
 
